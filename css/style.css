@@ -7,7 +7,7 @@
 
 /* Typography */
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.6;
     color: #333;
     padding: 1rem;
@@ -135,7 +135,7 @@ footer {
 }
 
 .mission-image img {
-    max-width: 100%;
+    max-width: 40%;
     height: auto;
 }
 
@@ -156,22 +156,60 @@ footer {
     height: auto;
 }
 
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    object-fit: cover; /* Ensures images cover the area without distortion */
+}
+
+
+/* Image Hover Effect */
+.gallery-item:hover img {
+    transform: scale(1.05); /* Subtle zoom effect on hover */
+}
+
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
-    .mission-info {
+    .mission-info, .technology-info {
         flex-direction: column;
     }
 
-    .about-mission,
-    .mission-impact {
-        width: 100%;
-        margin-bottom: 1rem;
+    .about-mission, .mission-impact,
+    .about-technology, .technology-features {
+        width: 100%; /* Full width for smaller devices */
     }
 
     .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr; /* Single column layout for mobile devices */
+    }
+
+    nav ul li {
+        display: block; /* Stack nav items vertically on mobile */
     }
 }
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: relative; /* Changed from static to relative */
+    bottom: 0;
+    width: 100%;
+}
+
 
 /* Reset/normalize CSS */
 /* Typography */
@@ -211,6 +249,28 @@ h1, h2 {
     height: auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
+}
+
+.technology-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.about-technology,
+.about-inventors {
+    width: 48%;
+}
+
+.technology-image,
+.inventors-image {
+    text-align: center;
+}
+
+.technology-image img,
+.inventors-image img {
+    max-width: 50%;
+    height: auto;
 }
 
 /* Technology Gallery */
@@ -258,21 +318,236 @@ h1, h2 {
 .gallery-item:hover p {
     opacity: 1;
 }
+.technology-gallery {
+    padding: 2rem;
+    background-color: #f2f2f2;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+}
+.technology-details {
+    padding: 2rem;
+}
+
+.technology-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.about-technology {
+    width: 48%;
+}
+
+.technology-image {
+    text-align: center;
+}
+
+.technology-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Gallery Styles */
+.technology-gallery {
+    padding: 2rem;
+    background-color: #f2f2f2;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three images per row on larger screens */
+    grid-gap: 1rem;
+}
 
 /* Footer */
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
-    .technology-info {
-        flex-direction: column;
-    }
-
-    .about-technology,
-    .technology-features {
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+    @media (max-width: 768px) {
+        .technology-info {
+            flex-direction: column;
+        }
+    
+        .about-technology {
+            width: 100%;
+        }
+    
+        .gallery-grid {
+            grid-template-columns: 1fr; /* One image per row on very small screens */
+        }
+    
+        nav ul li {
+            display: block;
+        
+}
     }
 }
+
+/* Latest News Styles */
+.latest-news {
+    padding: 40px 20px;
+  }
+  
+  .latest-news h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #005288;
+  }
+  
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+  }
+  
+  .news-item {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .news-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .news-item h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #005288;
+  }
+  
+  .news-item p {
+    font-size: 14px;
+    color: #666;
+  }
+
+  .latest-news {
+    padding: 40px 20px;
+  }
+  
+  .latest-news h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #005288;
+  }
+  
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+  }
+  
+  .news-item {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .news-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .news-item h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #005288;
+  }
+  
+  .news-item p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  @media (max-width: 768px) {
+    .news-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .news-item {
+      width: 100%;
+    }
+  }
+  news-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.news-item {
+    width: calc(100% - 1rem); /* Adjust the width as needed */
+    margin-bottom: 1rem;
+}
+
+.news-item img {
+    width: 100%;
+    height: auto; /* Keep the aspect ratio */
+    border: solid 1px #ccc; /* Placeholder for the image border */
+}
+
+.news-summary {
+    padding: 0.5rem;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #005288;
+    text-decoration: none;
+}
+
+  /* Media Queries for Latest News */
+  @media (max-width: 768px) {
+    .news-grid {
+      grid-template-columns: 1fr; /* One news item per row on smaller screens */
+    }
+  
+    .news-item {
+      width: 100%;
+    }
+  }
+  
+
+  /* Assuming other global styles have already been set in styles.css */
+
+.about-us {
+    padding: 1rem;
+}
+
+.about-us h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.about-us article {
+    margin-bottom: 2rem;
+    background: #f8f8f8; /* Light gray background to distinguish sections */
+    padding: 1rem;
+    border-radius: 5px; /* Rounded corners for style */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.about-us h2 {
+    color: #005288; /* Theme color for headings */
+    margin-bottom: 0.5rem;
+}
+
+.about-us p {
+    line-height: 1.6;
+    color: #333; /* Dark text for readability */
+}
+
+/* Footer styling assumed to be consistent across your site */
